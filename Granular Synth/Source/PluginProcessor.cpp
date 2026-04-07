@@ -22,6 +22,7 @@ GranularSynthAudioProcessor::GranularSynthAudioProcessor()
                        )
 #endif
 {
+    formatManager.registerBasicFormats();
 }
 
 GranularSynthAudioProcessor::~GranularSynthAudioProcessor()
@@ -188,4 +189,22 @@ void GranularSynthAudioProcessor::setStateInformation (const void* data, int siz
 juce::AudioProcessor* JUCE_CALLTYPE createPluginFilter()
 {
     return new GranularSynthAudioProcessor();
+}
+
+void GranularSynthAudioProcessor::openButtonClicked()
+{
+    chooser = std::make_unique<juce::FileChooser>("Select an audio file",
+        juce::File::getSpecialLocation(juce::File::userHomeDirectory),
+        "*.wav");
+
+    auto chooserFlags = juce::FileBrowserComponent::openMode | juce::FileBrowserComponent::canSelectFiles;
+
+    chooser->launchAsync(chooserFlags, [this](const juce::FileChooser& fc) {
+        auto file = fc.getResult();
+
+        if (file == juce::File{})
+            return;
+
+        std::unique_ptr<juce::AudioFormatReader> reader(formatManager.createReaderFor(file));
+        });
 }

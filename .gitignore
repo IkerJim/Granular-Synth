@@ -30,3 +30,85 @@
 *.exe
 *.out
 *.app
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/CopilotIndices/17.14.1290.42047/CodeChunks.db
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/CopilotIndices/17.14.1290.42047/SemanticSymbols.db
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/FileContentIndex/3ea50299-d8db-4555-a574-1906e291a365.vsidx
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/FileContentIndex/df1717fa-a5ba-4bfb-91ec-c0d1c214bd97.vsidx
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/.suo
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/Browse.VC.db
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/DocumentLayout.backup.json
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/DocumentLayout.json
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/fileList.bin
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/ipch/AutoPCH/5a412afe5718b45e/GRAINSOUND.ipch
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/ipch/AutoPCH/c977975f94f40843/GRAINVOICE.ipch
+Granular Synth/Builds/VisualStudio2022/.vs/Granular Synth/v17/Solution.VC.db
+Granular Synth/Builds/VisualStudio2022/Granular Synth.sln
+Granular Synth/Builds/VisualStudio2022/Granular Synth_SharedCode.vcxproj
+Granular Synth/Builds/VisualStudio2022/Granular Synth_SharedCode.vcxproj.filters
+Granular Synth/Builds/VisualStudio2022/Granular Synth_StandalonePlugin.vcxproj
+Granular Synth/Builds/VisualStudio2022/Granular Synth_StandalonePlugin.vcxproj.filters
+Granular Synth/Builds/VisualStudio2022/Granular Synth_VST3.vcxproj
+Granular Synth/Builds/VisualStudio2022/Granular Synth_VST3.vcxproj.filters
+Granular Synth/Builds/VisualStudio2022/Granular Synth_VST3ManifestHelper.vcxproj
+Granular Synth/Builds/VisualStudio2022/Granular Synth_VST3ManifestHelper.vcxproj.filters
+Granular Synth/Builds/VisualStudio2022/resources.rc
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular Synth.lib.recipe
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular Synth.pdb
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular Synth_SharedCode.log
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular Synth_SharedCode.vcxproj.FileListAbsolute.txt
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/CL.command.1.tlog
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/Cl.items.tlog
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/CL.read.1.tlog
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/CL.write.1.tlog
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/Granular Synth_SharedCode.lastbuildstate
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/Lib-link.read.1.tlog
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/Lib-link.write.1.tlog
+Granular Synth/Builds/VisualStudio2022/x64/Debug/Shared Code/Granular.E61E82FD.tlog/Lib.command.1.tlog
+Granular Synth/Granular Synth.jucer
+Granular Synth/JuceLibraryCode/include_juce_audio_basics.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_basics.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_devices.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_devices.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_formats.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_formats.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_AAX.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_AAX.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_AAX_utils.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_ARA.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_AU_1.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_AU_2.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_AUv3.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_LV2.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_LV2.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_Standalone.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_Unity.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_VST2.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_VST2.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_VST3.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_plugin_client_VST3.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_processors.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_processors.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_processors_headless.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_processors_headless.mm
+Granular Synth/JuceLibraryCode/include_juce_audio_processors_headless_ara.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_processors_headless_lv2_libs.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_utils.cpp
+Granular Synth/JuceLibraryCode/include_juce_audio_utils.mm
+Granular Synth/JuceLibraryCode/include_juce_core.cpp
+Granular Synth/JuceLibraryCode/include_juce_core.mm
+Granular Synth/JuceLibraryCode/include_juce_core_CompilationTime.cpp
+Granular Synth/JuceLibraryCode/include_juce_data_structures.cpp
+Granular Synth/JuceLibraryCode/include_juce_data_structures.mm
+Granular Synth/JuceLibraryCode/include_juce_events.cpp
+Granular Synth/JuceLibraryCode/include_juce_events.mm
+Granular Synth/JuceLibraryCode/include_juce_graphics.cpp
+Granular Synth/JuceLibraryCode/include_juce_graphics.mm
+Granular Synth/JuceLibraryCode/include_juce_graphics_Harfbuzz.cpp
+Granular Synth/JuceLibraryCode/include_juce_graphics_Sheenbidi.c
+Granular Synth/JuceLibraryCode/include_juce_gui_basics.cpp
+Granular Synth/JuceLibraryCode/include_juce_gui_basics.mm
+Granular Synth/JuceLibraryCode/include_juce_gui_extra.cpp
+Granular Synth/JuceLibraryCode/include_juce_gui_extra.mm
+Granular Synth/JuceLibraryCode/JuceHeader.h
+Granular Synth/JuceLibraryCode/JucePluginDefines.h
+Granular Synth/JuceLibraryCode/ReadMe.txt

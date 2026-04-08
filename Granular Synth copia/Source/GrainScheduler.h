@@ -26,4 +26,6 @@ private:
     juce::ReferenceCountedArray<Grain> grains;
     int nextOnset;
     juce::AudioBuffer<float>* source;
+
+    void synthesizeActiveGrains(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples);
 };

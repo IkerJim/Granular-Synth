@@ -23,6 +23,8 @@ GranularSynthAudioProcessor::GranularSynthAudioProcessor()
 #endif
 {
     formatManager.registerBasicFormats();
+
+    granulator.addVoice(new GrainVoice());
 }
 
 GranularSynthAudioProcessor::~GranularSynthAudioProcessor()

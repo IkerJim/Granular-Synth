@@ -10,6 +10,7 @@
 
 #include <JuceHeader.h>
 #include "GrainSound.h"
+#include "GrainVoice.h"
 
 //==============================================================================
 /**

@@ -12,6 +12,7 @@
 
 #include <JuceHeader.h>
 #include "GrainSound.h"
+#include "GrainScheduler.h"
 
 class GrainVoice : public juce::SynthesiserVoice
 {
@@ -25,4 +26,6 @@ public:
 
 private:
     juce::AudioBuffer<float>* source;
+    
+    GrainScheduler scheduler;
 };

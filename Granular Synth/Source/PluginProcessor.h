@@ -9,6 +9,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "GrainSound.h"
 
 //==============================================================================
 /**
@@ -59,5 +60,8 @@ private:
     //==============================================================================
     std::unique_ptr<juce::FileChooser> chooser;
     juce::AudioFormatManager formatManager;
+
+    juce::Synthesiser granulator;
+
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (GranularSynthAudioProcessor)
 };

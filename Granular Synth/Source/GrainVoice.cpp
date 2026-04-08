@@ -15,14 +15,17 @@ bool 	GrainVoice::canPlaySound(juce::SynthesiserSound* s)
     return dynamic_cast<GrainSound*>(s) != nullptr;
 }
 
-void 	GrainVoice::startNote(int midiNoteNumber, float velocity, juce::SynthesiserSound* sound, int currentPitchWheelPosition)
+void 	GrainVoice::startNote(int midiNoteNumber, float velocity, juce::SynthesiserSound* s, int currentPitchWheelPosition)
 {
-
+    if (auto sound = dynamic_cast<GrainSound*>(s))
+    {
+        source = &sound->data;
+    }
 }
 
 void 	GrainVoice::stopNote(float velocity, bool allowTailOff)
 {
-
+    source = nullptr;
 }
 
 void 	GrainVoice::pitchWheelMoved(int newPitchWheelValue)

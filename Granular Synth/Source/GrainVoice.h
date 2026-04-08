@@ -24,4 +24,5 @@ public:
     void 	renderNextBlock(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples) override;
 
 private:
+    juce::AudioBuffer<float>* source;
 };

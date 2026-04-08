@@ -96,6 +96,7 @@ void GranularSynthAudioProcessor::prepareToPlay (double sampleRate, int samplesP
 {
     // Use this method as the place to do any pre-playback
     // initialisation that you need..
+    granulator.setCurrentPlaybackSampleRate(sampleRate);
 }
 
 void GranularSynthAudioProcessor::releaseResources()
@@ -151,12 +152,7 @@ void GranularSynthAudioProcessor::processBlock (juce::AudioBuffer<float>& buffer
     // the samples and the outer loop is handling the channels.
     // Alternatively, you can process the samples with the channels
     // interleaved by keeping the same state.
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
-
-        // ..do something to the data...
-    }
+    granulator.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 }
 
 //==============================================================================
@@ -206,5 +202,10 @@ void GranularSynthAudioProcessor::openButtonClicked()
             return;
 
         std::unique_ptr<juce::AudioFormatReader> reader(formatManager.createReaderFor(file));
+
+        if (reader.get() != nullptr)
+        {
+            granulator.addSound(new GrainSound(*reader.get()));
+        }
         });
 }

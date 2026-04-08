@@ -1,8 +1,8 @@
 /*
   ==============================================================================
 
-    GrainScheduler.h
-    Created: 8 Apr 2026 5:32:52pm
+    GrainData.h
+    Created: 8 Apr 2026 7:49:16pm
     Author:  ikerr
 
   ==============================================================================
@@ -11,19 +11,17 @@
 #pragma once
 
 #include <JuceHeader.h>
-#include "GrainData.h"
 
-class GrainScheduler
+class Grain : public juce::ReferenceCountedObject
 {
 public:
-    GrainScheduler();
-    ~GrainScheduler();
+    typedef juce::ReferenceCountedObjectPtr<Grain> Ptr;
+
+    Grain(juce::AudioBuffer<float>* source);
     void synthesize(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples);
-    void reset();
-    void setSource(juce::AudioBuffer<float>* source);
 
 private:
-    juce::ReferenceCountedArray<Grain> grains;
-    int nextOnset;
     juce::AudioBuffer<float>* source;
+    int length;
+    int writePointer;
 };

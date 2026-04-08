@@ -2,7 +2,7 @@
   ==============================================================================
 
     GrainScheduler.cpp
-    Created: 8 Apr 2026 5:32:52pm
+    Created: 8 Apr 2026 7:48:56pm
     Author:  ikerr
 
   ==============================================================================
@@ -10,7 +10,7 @@
 
 #include "GrainScheduler.h"
 
-GrainScheduler::GrainScheduler():
+GrainScheduler::GrainScheduler() :
     nextOnset(0)
 {
 

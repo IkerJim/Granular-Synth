@@ -2,7 +2,7 @@
   ==============================================================================
 
     GrainData.cpp
-    Created: 8 Apr 2026 5:35:24pm
+    Created: 8 Apr 2026 7:49:16pm
     Author:  ikerr
 
   ==============================================================================
@@ -10,7 +10,7 @@
 
 #include "GrainData.h"
 
-Grain::Grain(juce::AudioBuffer<float>* source):
+Grain::Grain(juce::AudioBuffer<float>* source) :
     writePointer(0),
     length(44100),
     source(source)
@@ -33,7 +33,7 @@ void Grain::synthesize(juce::AudioBuffer<float>& outputBuffer, int startSample, 
         juce::FloatVectorOperations::add(outL, inL, limit);
         juce::FloatVectorOperations::add(outR, inR, limit);
     }
-    else 
+    else
     {
         juce::FloatVectorOperations::addWithMultiply(outL, inL, 0.5, limit);
         juce::FloatVectorOperations::addWithMultiply(outL, inR, 0.5, limit);

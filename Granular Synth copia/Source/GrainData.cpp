@@ -18,6 +18,9 @@ Grain::Grain(juce::AudioBuffer<float>* source, int length, int sourcePos) :
 {
     jassert(source != nullptr);
     jassert(sourcePos <= source->getNumSamples());
+
+    window.resize(length);
+    juce::dsp::WindowingFunction<float>::fillWindowingTables(window.data(), length, juce::dsp::WindowingFunction<float>::hann);
 }
 
 void Grain::synthesize(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples)
@@ -32,8 +35,8 @@ void Grain::synthesize(juce::AudioBuffer<float>& outputBuffer, int startSample, 
 
     if (outR != nullptr)
     {
-        juce::FloatVectorOperations::add(outL, inL, limit);
-        juce::FloatVectorOperations::add(outR, inR, limit);
+        juce::FloatVectorOperations::addWithMultiply(outL, inL, window.data() + writePointer, limit);
+        juce::FloatVectorOperations::addWithMultiply(outR, inR, window.data() + writePointer, limit);
     }
     else
     {

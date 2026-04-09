@@ -25,4 +25,6 @@ private:
     int length;
     int sourcePos;
     int writePointer;
+
+    std::vector<float> window;
 };

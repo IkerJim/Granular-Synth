@@ -31,7 +31,10 @@ void GrainScheduler::synthesize(juce::AudioBuffer<float>& outputBuffer, int star
 
     while (nextOnset < numSamples)
     {
-        Grain::Ptr newGrain = new Grain(source);
+        DBG((parameters.grainSourcePosition * sourceLength));
+        Grain::Ptr newGrain = new Grain(source, 
+            (int)(parameters.grainDuration * sourceSampleRate), 
+            (int)(parameters.grainSourcePosition * sourceLength));
         grains.add(newGrain);
         newGrain->synthesize(outputBuffer, 
                              startSample + nextOnset, 

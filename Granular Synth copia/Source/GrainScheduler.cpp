@@ -33,9 +33,12 @@ void GrainScheduler::synthesize(juce::AudioBuffer<float>& outputBuffer, int star
     {
         Grain::Ptr newGrain = new Grain(source);
         grains.add(newGrain);
-        newGrain->synthesize(outputBuffer, startSample + nextOnset, numSamples - nextOnset);
+        newGrain->synthesize(outputBuffer, 
+                             startSample + nextOnset, 
+                             numSamples - nextOnset);
 
-        nextOnset += 5000;
+        nextOnset += (1 / parameters.grainDensity) * systemSampleRate;
+        DBG(nextOnset);
     }
 
     nextOnset -= numSamples;
@@ -48,11 +51,20 @@ void GrainScheduler::reset()
     grains.clear();
 }
 
-void GrainScheduler::setSource(juce::AudioBuffer<float>* source)
+void GrainScheduler::setSource(juce::AudioBuffer<float>* source, double sourceSampleRate, int sourceLength)
 {
     jassert(source != nullptr);
 
     this->source = source;
+    this->sourceSampleRate = sourceSampleRate;
+    this->sourceLength = sourceLength;
+}
+
+void GrainScheduler::setParameters(const Parameters& newParameters, double systemSampleRate)
+{
+    parameters = newParameters;
+
+    this->systemSampleRate = systemSampleRate;
 }
 
 void GrainScheduler::synthesizeActiveGrains(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples)

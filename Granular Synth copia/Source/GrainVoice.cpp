@@ -19,7 +19,9 @@ void 	GrainVoice::startNote(int midiNoteNumber, float velocity, juce::Synthesise
 {
     if (auto sound = dynamic_cast<GrainSound*>(s))
     {
-        scheduler.setSource(&sound->data);
+        scheduler.setSource(&sound->data, sound->sampleRate, sound->length);
+
+        scheduler.setParameters(sound->parameters, getSampleRate());
     }
 }
 

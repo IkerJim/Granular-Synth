@@ -11,6 +11,7 @@
 #pragma once
 
 #include <JuceHeader.h>
+#include "GrainScheduler.h"
 
 class GrainSound : public juce::SynthesiserSound
 {
@@ -23,5 +24,8 @@ private:
     friend class GrainVoice;
 
     juce::AudioBuffer<float> data;
+    double sampleRate;
     int length;
+
+    GrainScheduler::Parameters parameters;
 };

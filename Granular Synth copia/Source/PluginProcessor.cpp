@@ -8,6 +8,7 @@
 
 #include "PluginProcessor.h"
 #include "PluginEditor.h"
+#include "GrainScheduler.h"
 
 //==============================================================================
 GranularSynthcopiaAudioProcessor::GranularSynthcopiaAudioProcessor()
@@ -154,6 +155,16 @@ void GranularSynthcopiaAudioProcessor::processBlock (juce::AudioBuffer<float>& b
     // the samples and the outer loop is handling the channels.
     // Alternatively, you can process the samples with the channels
     // interleaved by keeping the same state.
+    for (int i = 0; i < granulator.getNumSounds(); i++)
+    {
+        if (auto sound = dynamic_cast<GrainSound*>(granulator.getSound(i).get()))
+        {
+            GrainScheduler::Parameters parameters(10.0f, 0.05f, 0.0f);
+            
+            sound->setParameters(parameters);
+        }
+    }
+
     granulator.renderNextBlock(buffer, midiMessages, 0, buffer.getNumSamples());
 }
 

@@ -11,7 +11,8 @@
 #include "GrainScheduler.h"
 
 GrainScheduler::GrainScheduler() :
-    nextOnset(0)
+    nextOnset(0),
+    grainPool(100)
 {
 
 }
@@ -32,10 +33,15 @@ void GrainScheduler::synthesize(juce::AudioBuffer<float>& outputBuffer, int star
     while (nextOnset < numSamples)
     {
         DBG((parameters.grainSourcePosition * sourceLength));
-        Grain::Ptr newGrain = new Grain(source, 
-            (int)(parameters.grainDuration * sourceSampleRate), 
-            (int)(parameters.grainSourcePosition * sourceLength));
-        grains.add(newGrain);
+
+        Grain::Ptr newGrain = grainPool.request(); // revisar
+
+        newGrain->configurate(source, static_cast<int>(parameters.grainDuration * sourceSampleRate), static_cast<int>(parameters.grainSourcePosition * sourceLength)); // averiguar forma de enventanado
+
+        //Grain::Ptr newGrain = new Grain(source, 
+            //(int)(parameters.grainDuration * sourceSampleRate), 
+            //(int)(parameters.grainSourcePosition * sourceLength));
+        //grains.add(newGrain);
         newGrain->synthesize(outputBuffer, 
                              startSample + nextOnset, 
                              numSamples - nextOnset);

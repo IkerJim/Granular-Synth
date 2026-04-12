@@ -13,6 +13,50 @@
 #include <JuceHeader.h>
 #include "GrainData.h"
 
+template <typename Type>
+class pool
+{
+public:
+    pool (int num)
+    {
+        v.resize(num);
+    }
+
+    Type* request()
+    {
+        for (auto& element : v)
+        {
+            if (element.is_used == false)
+            {
+                element.is_used = true;
+                return &element.var;
+            }
+        }
+    }
+
+private:
+    struct TypeElement
+    {
+        TypeElement ():
+            is_used (false),
+            var()
+        {
+
+        }
+
+        void reset()
+        {
+            is_used = false;
+            var.reset();
+        }
+
+        bool is_used;
+        Type var;
+    };
+
+    std::vector<TypeElement> v;
+};
+
 class GrainScheduler
 {
 public:
@@ -50,6 +94,8 @@ private:
 
     Parameters parameters;
     double systemSampleRate;
+
+    pool<Grain> grainPool;
 
     void synthesizeActiveGrains(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples);
 };

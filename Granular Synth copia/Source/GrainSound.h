@@ -19,6 +19,7 @@ public:
     GrainSound(juce::AudioFormatReader& source);
     bool 	appliesToNote(int midiNoteNumber) override;
     bool 	appliesToChannel(int midiChannel) override;
+    void setParameters(const GrainScheduler::Parameters& newParameters);
 
 private:
     friend class GrainVoice;

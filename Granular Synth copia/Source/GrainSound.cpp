@@ -27,3 +27,8 @@ bool 	GrainSound::appliesToChannel(int midiChannel)
 {
     return true;
 }
+
+void GrainSound::setParameters(const GrainScheduler::Parameters& newParameters)
+{
+    parameters = newParameters;
+}

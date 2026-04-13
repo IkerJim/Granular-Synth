@@ -24,6 +24,8 @@ public:
     Grain(juce::AudioBuffer<float>* source, int length, int sourcePos);
     void synthesize(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples);
 
+    bool checkBoundaries() const;
+
 private:
     juce::AudioBuffer<float>* source;
     int length;

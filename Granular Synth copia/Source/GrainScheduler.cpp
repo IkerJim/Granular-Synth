@@ -32,9 +32,7 @@ void GrainScheduler::synthesize(juce::AudioBuffer<float>& outputBuffer, int star
 
     while (nextOnset < numSamples)
     {
-        DBG((parameters.grainSourcePosition * sourceLength));
-
-        Grain::Ptr newGrain = grainPool.request(); // revisar
+        auto newGrain = grainPool.request(); // revisar
 
         newGrain->configurate(source, static_cast<int>(parameters.grainDuration * sourceSampleRate), static_cast<int>(parameters.grainSourcePosition * sourceLength)); // averiguar forma de enventanado
 
@@ -47,7 +45,6 @@ void GrainScheduler::synthesize(juce::AudioBuffer<float>& outputBuffer, int star
                              numSamples - nextOnset);
 
         nextOnset += (1 / parameters.grainDensity) * systemSampleRate;
-        DBG(nextOnset);
     }
 
     nextOnset -= numSamples;
@@ -78,8 +75,17 @@ void GrainScheduler::setParameters(const Parameters& newParameters, double syste
 
 void GrainScheduler::synthesizeActiveGrains(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples)
 {
-    for (auto grain : grains)
+    for (int i = 0; i < grainPool.get_size(); i++)
     {
-        grain->synthesize(outputBuffer, startSample, numSamples);
+        if (grainPool[i].get_is_used())
+        {
+            grainPool[i].get_var().synthesize(outputBuffer, startSample, numSamples);
+
+            bool check = grainPool[i].get_var().checkBoundaries();
+            if (!check)
+            {
+                grainPool[i].set_is_used(false);
+            }
+        }
     }
 }

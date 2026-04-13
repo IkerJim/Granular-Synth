@@ -66,3 +66,8 @@ void Grain::synthesize(juce::AudioBuffer<float>& outputBuffer, int startSample, 
 
     writePointer += limit;
 }
+
+bool Grain::checkBoundaries() const
+{
+    return writePointer != length;
+}

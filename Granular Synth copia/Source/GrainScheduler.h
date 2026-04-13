@@ -13,32 +13,14 @@
 #include <JuceHeader.h>
 #include "GrainData.h"
 
-template <typename Type>
+template <typename T>
 class pool
 {
 public:
-    pool (int num)
+    struct Telement
     {
-        v.resize(num);
-    }
-
-    Type* request()
-    {
-        for (auto& element : v)
-        {
-            if (element.is_used == false)
-            {
-                element.is_used = true;
-                return &element.var;
-            }
-        }
-    }
-
-private:
-    struct TypeElement
-    {
-        TypeElement ():
-            is_used (false),
+        Telement() :
+            is_used(false),
             var()
         {
 
@@ -50,11 +32,59 @@ private:
             var.reset();
         }
 
+        void set_is_used(bool state)
+        {
+            if (state != is_used)
+                is_used = state;
+        }
+
+        bool get_is_used() const
+        {
+            return is_used;
+        }
+
+        T& get_var()
+        {
+            return var;
+        }
+
+    private:
         bool is_used;
-        Type var;
+        T var;
     };
 
-    std::vector<TypeElement> v;
+    pool (int num)
+    {
+        container.reserve(300);
+        container.resize(num);
+        size = num;
+    }
+
+    T* request()
+    {
+        for (auto& element : container)
+            if (element.get_is_used() == false)
+            {
+                element.set_is_used(true);
+                return &element.get_var();
+            }
+
+        return nullptr;
+    }
+
+    Telement& operator[] (int index)
+    {
+        return container[index];
+    }
+
+    int get_size() const
+    {
+        return size;
+    }
+
+private:
+    std::vector<Telement> container;
+    int size;
 };
 
 class GrainScheduler

@@ -24,8 +24,6 @@ GrainScheduler::~GrainScheduler()
 
 void GrainScheduler::synthesize(juce::AudioBuffer<float>& outputBuffer, int startSample, int numSamples)
 {
-    DBG(nextOnset);
-
     jassert(source != nullptr);
 
     synthesizeActiveGrains(outputBuffer, startSample, numSamples);
@@ -54,7 +52,7 @@ void GrainScheduler::reset()
 {
     nextOnset = 0;
     source = nullptr;
-    grains.clear();
+    grainPool.clear();
 }
 
 void GrainScheduler::setSource(juce::AudioBuffer<float>* source, double sourceSampleRate, int sourceLength)
@@ -84,7 +82,7 @@ void GrainScheduler::synthesizeActiveGrains(juce::AudioBuffer<float>& outputBuff
             bool check = grainPool[i].get_var().checkBoundaries();
             if (!check)
             {
-                grainPool[i].set_is_used(false);
+                grainPool.free(i);
             }
         }
     }

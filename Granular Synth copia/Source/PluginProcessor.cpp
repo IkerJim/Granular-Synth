@@ -159,7 +159,7 @@ void GranularSynthcopiaAudioProcessor::processBlock (juce::AudioBuffer<float>& b
     {
         if (auto sound = dynamic_cast<GrainSound*>(granulator.getSound(i).get()))
         {
-            GrainScheduler::Parameters parameters(10.0f, 0.05f, 0.0f);
+            GrainScheduler::Parameters parameters(5.0f, 0.5f, 0.0f);
             
             sound->setParameters(parameters);
         }

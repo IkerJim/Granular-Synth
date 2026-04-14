@@ -24,6 +24,7 @@ void Grain::configurate(juce::AudioBuffer<float>* sourceRef, int grainLength, in
     source = sourceRef;
     length = grainLength;
     samplePosition = grainSamplePosition;
+    writePointer = 0;
 
     window.resize(length);
     juce::dsp::WindowingFunction<float>::fillWindowingTables(window.data(), length, juce::dsp::WindowingFunction<float>::hann);

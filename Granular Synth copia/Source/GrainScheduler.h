@@ -82,6 +82,20 @@ public:
         return size;
     }
 
+    void free(int index)
+    {
+        if (container[index].get_is_used())
+            container[index].set_is_used(false);
+    }
+
+    void clear()
+    {
+        for (int i = 0; i < get_size(); i++)
+        {
+            free(i);
+        }
+    }
+
 private:
     std::vector<Telement> container;
     int size;
